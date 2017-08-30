@@ -5,8 +5,8 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Management.Compute.Fluent;
 using Microsoft.Azure.Management.Compute.Fluent.Models;
-using Microsoft.Azure.Management.DocumentDB.Fluent;
-using Microsoft.Azure.Management.DocumentDB.Fluent.Models;
+using Microsoft.Azure.Management.CosmosDB.Fluent;
+using Microsoft.Azure.Management.CosmosDB.Fluent.Models;
 using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.Network.Fluent;
 using Microsoft.Azure.Management.ResourceManager.Fluent;
@@ -19,7 +19,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace DocumentDBWithEventualConsistency
+namespace CosmosDBWithEventualConsistency
 {
 
     public class Program
@@ -28,24 +28,24 @@ namespace DocumentDBWithEventualConsistency
         const String COLLECTION_ID = "TestCollection";
 
         /**
-          * Azure DocumentDB sample -
-          *  - Create a DocumentDB configured with eventual consistency
-          *  - Get the credentials for the DocumentDB
-          *  - add collection to the DocumentDB
-          *  - Delete the DocumentDB.
+          * Azure CosmosDB sample -
+          *  - Create a CosmosDB configured with eventual consistency
+          *  - Get the credentials for the CosmosDB
+          *  - add collection to the CosmosDB
+          *  - Delete the CosmosDB.
           */
         public static void RunSample(IAzure azure)
         {
-            string docDBName = SdkContext.RandomResourceName("docDb", 10);
+            string cosmosDBName = SdkContext.RandomResourceName("docDb", 10);
             string rgName = SdkContext.RandomResourceName("rgNEMV", 24);
 
             try
             {
                 //============================================================
-                // Create a DocumentDB.
+                // Create a CosmosDB.
 
-                Console.WriteLine("Creating a DocumentDB...");
-                IDocumentDBAccount documentDBAccount = azure.DocumentDBAccounts.Define(docDBName)
+                Console.WriteLine("Creating a CosmosDB...");
+                ICosmosDBAccount cosmosDBAccount = azure.CosmosDBAccounts.Define(cosmosDBName)
                         .WithRegion(Region.USWest)
                         .WithNewResourceGroup(rgName)
                         .WithKind(DatabaseAccountKind.GlobalDocumentDB)
@@ -54,28 +54,28 @@ namespace DocumentDBWithEventualConsistency
                         .WithReadReplication(Region.USCentral)
                         .Create();
 
-                Console.WriteLine("Created DocumentDB");
-                Utilities.Print(documentDBAccount);
+                Console.WriteLine("Created CosmosDB");
+                Utilities.Print(cosmosDBAccount);
 
                 //============================================================
-                // Get credentials for the DocumentDB.
+                // Get credentials for the CosmosDB.
 
-                Console.WriteLine("Get credentials for the DocumentDB");
-                DatabaseAccountListKeysResultInner databaseAccountListKeysResult = documentDBAccount.ListKeys();
+                Console.WriteLine("Get credentials for the CosmosDB");
+                DatabaseAccountListKeysResultInner databaseAccountListKeysResult = cosmosDBAccount.ListKeys();
                 string masterKey = databaseAccountListKeysResult.PrimaryMasterKey;
-                string endPoint = documentDBAccount.DocumentEndpoint;
+                string endPoint = cosmosDBAccount.DocumentEndpoint;
 
                 //============================================================
-                // Connect to DocumentDB and add a collection
+                // Connect to CosmosDB and add a collection
 
                 Console.WriteLine("Connecting and adding collection");
                 //CreateDBAndAddCollection(masterKey, endPoint);
 
                 //============================================================
-                // Delete DocumentDB
-                Console.WriteLine("Deleting the DocumentDB");
-                azure.DocumentDBAccounts.DeleteById(documentDBAccount.Id);
-                Console.WriteLine("Deleted the DocumentDB");
+                // Delete CosmosDB
+                Console.WriteLine("Deleting the CosmosDB");
+                azure.CosmosDBAccounts.DeleteById(cosmosDBAccount.Id);
+                Console.WriteLine("Deleted the CosmosDB");
             }
             finally
             {
