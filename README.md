@@ -4,7 +4,7 @@ platforms: .Net
 author: alvadb
 ---
 
-# Getting Started with Cosmosdb - Create Cosmos D B With Eventual Consistency - in .Net #
+# Getting Started with Cosmosdb - Create Cosmos DB With Eventual Consistency - in .Net #
 
            Azure CosmosDB sample -
             - Create a CosmosDB configured with eventual consistency
