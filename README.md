@@ -1,10 +1,10 @@
 ---
-services: Cosmosdb
-platforms: .Net
+services: Cosmos-DB
+platforms: dotnet
 author: alvadb
 ---
 
-# Getting Started with Cosmosdb - Create Cosmos DB With Eventual Consistency - in .Net #
+# Create a DocumentDB and configure it with eventual consistency using C# #
 
            Azure CosmosDB sample -
             - Create a CosmosDB configured with eventual consistency
@@ -17,7 +17,7 @@ author: alvadb
 
 To run this sample:
 
-Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-sdk-for-net/blob/Fluent/AUTH.md).
+Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-libraries-for-java/blob/master/AUTH.md).
 
     git clone https://github.com/Azure-Samples/cosmosdb-dotnet-create-documentdb-and-configure-for-eventual-consistency.git
 
