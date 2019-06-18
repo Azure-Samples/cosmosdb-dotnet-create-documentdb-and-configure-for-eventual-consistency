@@ -22,10 +22,10 @@ Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an aut
     git clone https://github.com/Azure-Samples/cosmosdb-dotnet-create-documentdb-and-configure-for-eventual-consistency.git
 
     cd cosmosdb-dotnet-create-documentdb-and-configure-for-eventual-consistency
-
-    dotnet restore
-
-    dotnet run
+  
+    dotnet build
+    
+    bin\Debug\net452\CreateCosmosDBWithEventualConsistency.exe
 
 ## More information ##
 
