@@ -1,7 +1,9 @@
 ---
 page_type: sample
-languages: java
-products: azure
+languages:
+- java
+products:
+- azure
 services: Cosmos-DB
 platforms: dotnet
 author: yaohaizh
@@ -25,9 +27,9 @@ Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an aut
     git clone https://github.com/Azure-Samples/cosmosdb-dotnet-create-documentdb-and-configure-for-eventual-consistency.git
 
     cd cosmosdb-dotnet-create-documentdb-and-configure-for-eventual-consistency
-  
+
     dotnet build
-    
+
     bin\Debug\net452\CreateCosmosDBWithEventualConsistency.exe
 
 ## More information ##
