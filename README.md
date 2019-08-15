@@ -4,18 +4,18 @@ languages:
 - csharp
 products:
 - azure
-services: Cosmos-DB
-platforms: dotnet
-author: yaohaizh
+extensions:
+- services: Cosmos-DB
+- platforms: dotnet
 ---
 
 # Create a DocumentDB and configure it with eventual consistency using C# #
 
-           Azure CosmosDB sample -
-            - Create a CosmosDB configured with eventual consistency
-            - Get the credentials for the CosmosDB
-            - add collection to the CosmosDB
-            - Delete the CosmosDB.
+ Azure CosmosDB sample -
+  - Create a CosmosDB configured with eventual consistency
+  - Get the credentials for the CosmosDB
+  - add collection to the CosmosDB
+  - Delete the CosmosDB.
 
 
 ## Running this Sample ##
