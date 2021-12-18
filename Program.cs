@@ -29,7 +29,7 @@ namespace CosmosDBWithEventualConsistency
         const String COLLECTION_ID = "TestCollection";
 
         /**
-          * Azure CosmosDB sample -
+          * Azure Cosmos DB sample -
           *  - Create a CosmosDB configured with eventual consistency
           *  - Get the credentials for the CosmosDB
           *  - add collection to the CosmosDB
